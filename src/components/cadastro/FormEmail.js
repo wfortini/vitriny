@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import {  StyleSheet,  TouchableOpacity,  Text,  View  } from 'react-native';
-import { Input, Item, Button, Text } from 'native-base';
+import { Input, Item, Button } from 'native-base';
 
 
 import { Actions } from 'react-native-router-flux';

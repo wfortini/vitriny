@@ -44,7 +44,7 @@ const Login = props => {
                 <Text style={styles.text}>Vitriny</Text>
           </View>
           
-             <KeyboardAvoidingView  style={styles.container}>
+             <KeyboardAvoidingView behavior="padding" style={styles.container}>
                  <View  style={styles.inputWrapper} >
                     <Image source={usernameImg} style={styles.inlineImg} />
                     <TextInput
@@ -76,10 +76,10 @@ const Login = props => {
                   </View>
               </KeyboardAvoidingView>
                   <View style={styles.containerSign}>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => Actions.formCadastro() }>
                              <Text style={styles.textLabel}>Criar sua conta</Text>
                         </TouchableOpacity >
-                        <TouchableOpacity onPress={() => Actions.home() }>
+                        <TouchableOpacity >
                             <Text style={styles.textLabel}>Esqueceu sua senha?</Text>
                       </TouchableOpacity >
                   </View>

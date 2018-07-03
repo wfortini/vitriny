@@ -5,7 +5,7 @@ import {  StyleSheet,  TouchableOpacity,  Text,  View  } from 'react-native';
 
 import { Actions } from 'react-native-router-flux';
 
-const FormCadastro = props => {
+export const FormCadastro = props => {
 
     console.log(props);
 
@@ -17,22 +17,29 @@ const FormCadastro = props => {
           <View style={styles.containerTitle}>
                 <Text style={styles.text}>Vitriny</Text>
           </View>
+          <View style={{flex : 1, justifyContent : 'center'}}>
+               <Text>OU</Text>
+          </View>
+          <View style={{flex : 1, justifyContent : 'center'}}>
+               <Text>Cadastro</Text>
+          </View>
       </View>
           
     );
 
 }
 
-
 const styles = StyleSheet.create({  
   container: {
-    flex: 1,   
-    alignItems: 'center',
+    flex: 1,
+    alignItems: 'center',   
   },
   containerTitle: {
-    flex: 3,
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    paddingTop : 20,
+    
   }, 
   text: {
     color: 'white',
