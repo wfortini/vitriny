@@ -1,50 +1,57 @@
 import React, {Component} from 'react';
+import {  StyleSheet,  Text,  View, TextInput } from 'react-native';
 
-import {  StyleSheet,  TouchableOpacity,  Text,  View  } from 'react-native';
+export default class FormCadastro extends Component {   
 
+   render(){
+          console.log(this.props);
+            return (
 
-import { Actions } from 'react-native-router-flux';
+              <View state={styles.container}>          
 
-export const FormCadastro = props => {
-
-    console.log(props);
-
-
-    return (
-
-      <View state={styles.container}>
-
-          <View style={styles.containerTitle}>
-                <Text style={styles.text}>Vitriny</Text>
-          </View>
-          <View style={{flex : 1, justifyContent : 'center'}}>
-               <Text>OU</Text>
-          </View>
-          <View style={{flex : 1, justifyContent : 'center'}}>
-               <Text>Cadastro</Text>
-          </View>
-      </View>
-          
-    );
+                  <View style={styles.containerTitle}>
+                        <Text style={styles.text}>Vitriny</Text>
+                  </View>
+                  <View>
+                  <TextInput                     
+                      placeholder="Usuário"
+                      autoCorrect={false}
+                      autoCapitalize={'none'}
+                      returnKeyType={'none'}
+                      value={this.props.email}
+                      placeholderTextColor="black"
+                      underlineColorAndroid="transparent"                      
+                    />
+                  </View>
+              </View>
+                  
+            );
+          }
 
 }
 
 const styles = StyleSheet.create({  
   container: {
     flex: 1,
-    alignItems: 'center',   
+    marginTop: 48,   
   },
   containerTitle: {
-    flex: 1,
+    
     alignItems: 'center',
     justifyContent: 'center',
     paddingTop : 20,
     
+  },
+  elementsContainer: {
+    backgroundColor: 'red',
+    marginLeft: 24,
+    marginRight: 24,
+    marginBottom: 24
   }, 
   text: {
-    color: 'white',
-    fontWeight: 'bold',
-    backgroundColor: 'transparent',
+    paddingTop: 80,
+    color: 'black',
+    fontWeight: 'bold',   
     marginTop: 20,
     fontSize: 30,
     fontFamily: "Roboto",

@@ -20,7 +20,12 @@ prop-types                  : "^15.6.1",
 
 
 
-# npm install <library-with-native-dependencies> --save
+
+# instalando packages
+# npm i <library> --save
+
+#link
+#  react-native link <library>
 
 
 https://www.genymotion.com/thank-you-freemium/
@@ -42,3 +47,10 @@ git push -u origin master
 #git push
 
 # Firebase Configurado
+
+
+#comando
+
+cd android && gradlew clean
+
+npm i --save react-native-vector-icons
