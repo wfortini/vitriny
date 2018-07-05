@@ -28,6 +28,14 @@ prop-types                  : "^15.6.1",
 #  react-native link <library>
 
 
+# remove
+# react-native unlink <library>
+
+# react-native uninstall  <lib name>
+
+# npm uninstall package --save
+
+
 https://www.genymotion.com/thank-you-freemium/
 
 …or create a new repository on the command line

@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 
 import {  StyleSheet,  TouchableOpacity,  Text,  View  } from 'react-native';
-import { Input, Item, Button } from 'native-base';
-
 
 import { Actions } from 'react-native-router-flux';
 
@@ -13,20 +11,13 @@ const FormEmail = props => {
 
     return (
 
-      <View state={styles.container}>
+      <View style={styles.container}>
 
           <View style={styles.containerTitle}>
                 <Text style={styles.text}>Vitriny</Text>
           </View>
 
 
-          <Item regular>
-            <Input placeholder='Regular Textbox' />
-          </Item>
-
-          <Button block>
-            <Text>Primary</Text>
-          </Button>
       </View>
           
     );
