@@ -13,16 +13,83 @@ const FormEmail = props => {
 
       <View style={styles.container}>
 
-          <View style={styles.containerTitle}>
-                <Text style={styles.text}>Vitriny</Text>
-          </View>
+             <View style={{ flex: 3, alignItems: 'center' }}>
+                    <Text style={styles.text}>Vitriny</Text>
+             </View>
 
+             <View  style={styles.inputWrapper} >
+                    
+                    <TextInput
+                      style={styles.input}
+                      placeholder="Email"
+                      autoCorrect={false}
+                      autoCapitalize={'none'}
+                      returnKeyType={'none'}
+                      value={props.email}
+                      placeholderTextColor="white"
+                      underlineColorAndroid="transparent"
+                      onChangeText={texto => props.modificaEmail(texto) }
+                    />
+                </View>
 
+                <View  style={styles.inputWrapper} >
+                    
+                    <TextInput
+                      style={styles.input}
+                      placeholder="Nome completo"
+                      autoCorrect={false}
+                      autoCapitalize={'none'}
+                      returnKeyType={'none'}
+                      value={props.nome}
+                      placeholderTextColor="white"
+                      underlineColorAndroid="transparent"
+                      onChangeText={texto => props.modificaEmail(texto) }
+                    />
+                </View>
+
+                <View  style={styles.inputWrapper} >
+                    <TextInput
+                      style={styles.input}
+                      placeholder="Nome do usuário"
+                      autoCorrect={false}
+                      autoCapitalize={'none'}
+                      returnKeyType={'none'}
+                      value={props.nomeUsuario}
+                      placeholderTextColor="white"
+                      underlineColorAndroid="transparent"
+                      onChangeText={texto => props.modificaEmail(texto) }
+                    />
+                </View>
+
+                <View  style={styles.inputWrapper} >                    
+                    <TextInput
+                      style={styles.input}
+                      placeholder="Senha"
+                      autoCorrect={false}
+                      autoCapitalize={'none'}
+                      returnKeyType={'none'}
+                      value={props.senha}
+                      placeholderTextColor="white"
+                      underlineColorAndroid="transparent"
+                      onChangeText={texto => props.modificaEmail(texto) }
+                    />
+                </View>
       </View>
           
     );
 
 }
+
+const mapStateToProps = state => (
+  {
+      email: state.AutenticacaoReducer.email,
+      password: state.AutenticacaoReducer.senha,
+      nome: state.AutenticacaoReducer.nome,
+      nomeUsuario: state.AutenticacaoReducer.nomeUsuario
+  }
+)
+
+export default connect(mapStateToProps, null)(FormEmail);
 
 
 const styles = StyleSheet.create({  
@@ -36,12 +103,26 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   }, 
   text: {
-    color: 'white',
-    fontWeight: 'bold',
-    backgroundColor: 'transparent',
+    paddingTop: 80,
+    coltextor: 'black',
+    fontWeight: 'bold',   
     marginTop: 20,
     fontSize: 30,
     fontFamily: "Roboto",
   },
+  input: {
+    backgroundColor: 'rgba(255, 255, 255, 0.4)',
+    width: DEVICE_WIDTH - 40,
+    height: 40,
+    marginHorizontal: 20,
+    paddingLeft: 45,
+    borderRadius: 20,
+    color: '#ffffff',
+    fontSize: 16,
+
+  },
+  inputWrapper: {
+    flex: 1,
+ },
  
 });

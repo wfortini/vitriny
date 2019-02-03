@@ -3,12 +3,13 @@ import { Router, Scene } from 'react-native-router-flux';
 
 import Login from './components/login/Login';
 import Feed from './components/home/feed';
-import FormEmail from './components/cadastro/FormEmail';
+import  FormEmail  from './components/cadastro/FormEmail';
 import FormDados from './components/cadastro/FormDados';
 import  FormCadastro from './components/cadastro/FormCadastro';
 
 export default props => (
     <Router>
+        
         <Scene key='root' >
            <Scene key='formCadastro' component={FormCadastro} title="Login" initial hideNavBar={true}/> 
            <Scene key='home' component={Feed}  title='Home' hideNavBar={true} />  
