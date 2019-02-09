@@ -1,20 +1,45 @@
+import * as t from '../config/ActionTypes';
+
 const INITIAL_STATE = {
     nome: '',
-    email: 'wellington',
+    email: '',
     senha: '',
-    nomeUsuario: ''
+    nomeUsuario: '',
+    isLoggedIn: false, 
+    user: null
 }
 
 export default (state = INITIAL_STATE, action) => {
     console.log(action);
-    if(action.type == 'modifica_email'){
-        return { ...state, email: action.payload }
-    }
-    if(action.type == 'modifica_senha') {
-        return { ...state, senha: action.payload }
-    }
-    if(action.type == 'modifica_nome') {
-        return { ...state, nome: action.payload }
-    }
-    return state;
+
+    switch (action.type) {
+        case t.LOGGED_IN:
+            const user = action.user;
+
+            // Save token and data to Asyncstorage
+            AsyncStorage.multiSet([
+                ['user', JSON.stringify(user)]
+            ]);
+
+            return {...state, isLoggedIn: true, user };
+
+        case t.LOGGED_OUT:
+            let keys = ['user'];
+            AsyncStorage.multiRemove(keys);
+
+            return {...state, isLoggedIn: false, user: null};
+
+        case t.MODIFICA_EMAIL:
+            return { ...state, email: action.payload };
+
+        case t.MODIFICA_SENHA:
+            return { ...state, senha: action.payload };
+
+        case t.MODIFICA_NOME:
+            return { ...state, nome: action.payload };
+
+        default:
+            return state;
+    }   
+       
 }

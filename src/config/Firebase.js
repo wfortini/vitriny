@@ -2,14 +2,15 @@ import * as firebase from 'firebase';
 import * as c from "./Constants"
 
 // Initialize Firebase
+// vitriny2019@gmail.com
 var config = {
-    apiKey: "AIzaSyDLb8cR4me8V9mIyKvIeaEt6YUDYKGMtOE",
-    authDomain: "vitriny-29acc.firebaseapp.com",
-    databaseURL: "https://vitriny-29acc.firebaseio.com",
-    projectId: "vitriny-29acc",
-    storageBucket: "vitriny-29acc.appspot.com",
-    messagingSenderId: "92258409260"
-  };
+  apiKey: "AIzaSyCS2c_hcIQH-M88ZnJTlt8rSlEBRD6a160",
+  authDomain: "vitriny-f2e3b.firebaseapp.com",
+  databaseURL: "https://vitriny-f2e3b.firebaseio.com",
+  projectId: "vitriny-f2e3b",
+  storageBucket: "vitriny-f2e3b.appspot.com",
+  messagingSenderId: "564008022327"
+};
   firebase.initializeApp(config);
 
 export const database = firebase.database();
