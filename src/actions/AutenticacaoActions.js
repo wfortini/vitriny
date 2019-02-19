@@ -1,29 +1,38 @@
-import {auth, database, provider} from "../config/firebase";
-import * as t from '../config/actionTypes';
+import {auth, database, provider} from "../config/Firebase";
+import * as t from '../config/ActionTypes';
 
 import {AsyncStorage} from 'react-native';
 
 
 export const modificaEmail = (texto) => {
     return {
-        type: 'modifica_email',
+        type: t.MODIFICA_EMAIL,
         payload: texto
     }
 }
 
 export const modificaSenha = (texto) => {
     return {
-        type: 'modifica_senha',
+        type: t.MODIFICA_SENHA,
         payload: texto
     }
 }
 
 export const modificaNome = (texto) => {
     return {
-        type: 'modifica_nome',
+        type: t.MODIFICA_NOME,
         payload: texto
     }
 }
+
+export const modificaNomeUsuario = (texto) => {
+    console.log(texto);
+    return {
+        type: t.MODIFICA_NOME_USUARIO,
+        payload: texto
+    }
+}
+
 
 //Register the user using email and password
 export function register(data) {

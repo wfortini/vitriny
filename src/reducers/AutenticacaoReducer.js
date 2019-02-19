@@ -38,6 +38,9 @@ export default (state = INITIAL_STATE, action) => {
         case t.MODIFICA_NOME:
             return { ...state, nome: action.payload };
 
+        case t.MODIFICA_NOME_USUARIO:
+            return { ...state, nomeUsuario: action.payload };
+
         default:
             return state;
     }   

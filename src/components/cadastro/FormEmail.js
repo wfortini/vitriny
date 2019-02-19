@@ -1,12 +1,38 @@
 import React, {Component} from 'react';
 
-import {  StyleSheet,  TouchableOpacity,  Text,  View  } from 'react-native';
+import {  StyleSheet,  Text,  View, TextInput, Button  } from 'react-native';
 
 import { Actions } from 'react-native-router-flux';
+
+import { connect } from 'react-redux';
+
+import {modificaEmail, 
+        modificaNome, 
+        modificaNomeUsuario,
+        modificaSenha,
+        register} from '../../actions/AutenticacaoActions';
+
+import Dimensions from 'Dimensions';
+const DEVICE_WIDTH = Dimensions.get('window').width;
+const DEVICE_HEIGHT = Dimensions.get('window').height;
+const MARGIN = 40;
 
 const FormEmail = props => {
 
     console.log(props);
+
+    onSubmit = () => {
+      //this.setState({error: error}); //clear out error messages
+      data = {
+        email: props.email,
+        password: props.password,
+        username: props.nomeUsuario
+      }
+      console.log('data', data);
+      props.register(data)
+          .then(() => Actions.home())
+          .catch((error) => console.log(error))
+  }
 
 
     return (
@@ -26,7 +52,6 @@ const FormEmail = props => {
                       autoCapitalize={'none'}
                       returnKeyType={'none'}
                       value={props.email}
-                      placeholderTextColor="white"
                       underlineColorAndroid="transparent"
                       onChangeText={texto => props.modificaEmail(texto) }
                     />
@@ -41,9 +66,8 @@ const FormEmail = props => {
                       autoCapitalize={'none'}
                       returnKeyType={'none'}
                       value={props.nome}
-                      placeholderTextColor="white"
                       underlineColorAndroid="transparent"
-                      onChangeText={texto => props.modificaEmail(texto) }
+                      onChangeText={texto => props.modificaNome(texto) }
                     />
                 </View>
 
@@ -55,9 +79,8 @@ const FormEmail = props => {
                       autoCapitalize={'none'}
                       returnKeyType={'none'}
                       value={props.nomeUsuario}
-                      placeholderTextColor="white"
                       underlineColorAndroid="transparent"
-                      onChangeText={texto => props.modificaEmail(texto) }
+                      onChangeText={texto => props.modificaNomeUsuario(texto) }
                     />
                 </View>
 
@@ -68,11 +91,16 @@ const FormEmail = props => {
                       autoCorrect={false}
                       autoCapitalize={'none'}
                       returnKeyType={'none'}
-                      value={props.senha}
-                      placeholderTextColor="white"
+                      value={props.senha}                     
                       underlineColorAndroid="transparent"
-                      onChangeText={texto => props.modificaEmail(texto) }
+                      onChangeText={texto => props.modificaSenha(texto) }
                     />
+                </View>
+                <View>
+                  <Button                          
+                          title="OK"
+                          borderRadius={0}                  
+                          onPress={this.onSubmit}/>
                 </View>
       </View>
           
@@ -89,7 +117,12 @@ const mapStateToProps = state => (
   }
 )
 
-export default connect(mapStateToProps, null)(FormEmail);
+export default connect(mapStateToProps, 
+  { modificaEmail, 
+    modificaNome, 
+    modificaNomeUsuario,
+    modificaSenha,
+    register })(FormEmail);
 
 
 const styles = StyleSheet.create({  
@@ -103,21 +136,19 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   }, 
   text: {
-    paddingTop: 80,
-    coltextor: 'black',
+    paddingTop: 80,    
     fontWeight: 'bold',   
     marginTop: 20,
     fontSize: 30,
     fontFamily: "Roboto",
   },
-  input: {
-    backgroundColor: 'rgba(255, 255, 255, 0.4)',
+  input: {    
     width: DEVICE_WIDTH - 40,
     height: 40,
     marginHorizontal: 20,
     paddingLeft: 45,
     borderRadius: 20,
-    color: '#ffffff',
+    
     fontSize: 16,
 
   },
